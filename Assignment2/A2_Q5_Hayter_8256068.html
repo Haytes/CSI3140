@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Question 5</title>
+	<script type="text/javascript">
+		function eval(){
+			var num1 = document.getElementById("num1").value;
+			var num2 = document.getElementById("num2").value;
+  			document.getElementById("demo").innerHTML = num1%num2==0;
+		}
+	</script>
+</head>
+<body>
+		<p>enter first number</p>
+		<input type="text" name="num1" id="num1" >
+		<p>enter second number</p>
+		<input type="text" name="num2" id="num2">
+		<br><button onclick="eval()">Check if the first number is a multiple of the second</button>
+		<p id="demo"></p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+div:hover{
+	background: purple;
+	color: white;
+	border-width: medium;
+	border-style: solid;
+	border-color: pink; 
+}
+div{
+	color: black;
+}
