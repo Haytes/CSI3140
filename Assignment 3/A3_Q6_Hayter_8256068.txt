@@ -1,0 +1,14 @@
+
+function printLatinWord() {
+	var input = document.getElementById('input');
+	var words = input.value.split(' ');
+	document.getElementById("result").innerHTML=" ";
+	words.forEach(toLatin);
+	document.getElementById("result").innerHTML+=" ";
+}
+
+function toLatin(word){
+	document.getElementById("result").innerHTML += word.substring(1) + word[0] + 'ay' +" ";
+
+}
+

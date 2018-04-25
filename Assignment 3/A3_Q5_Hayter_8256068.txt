@@ -1,0 +1,85 @@
+var tPos = 0;
+var hPos = 0;
+
+function update() {
+	var racetrack = document.getElementById('racetrack');
+	var ouch = '    '; 
+	for(i = 0; i < 70; ++i) {
+		if(tPos == i && hPos == tPos) {
+			ouch = ouch.substring(0, ouch.length-4) + 'OUCH!!!';
+			i+= 2;
+		}else if(i == tPos){
+			ouch+= 'T';
+		}else if(i == hPos){
+			ouch+= 'H';
+		}else{
+			ouch+= ' ';
+		}
+	}
+
+	racetrack.innerHTML = ouch; 
+}
+
+function log(message) {
+	document.getElementById('log').innerHTML+= '<br />' + message;
+}
+
+function start() {
+	document.getElementById('strtB').disabled = true;
+	tPos = 0;
+	hPos = 0;
+	document.getElementById('log').innerHTML = '';
+	document.getElementById('racetrack').innerHTML = ' ';
+	log('ON YOUR MARK, GET SET');
+	setTimeout(function() {
+		log('BANG!!!');
+		play();
+		setTimeout(function() {
+			log('AND THEY\'RE OFF!!!');
+		}, 2000);
+	}, 3000);
+}
+
+function play() {
+	var hareMove = parseInt(Math.random() * 10);
+	switch(hareMove) {
+		case 2: case 3:
+			hPos = Math.min(hPos + 9, 69);
+			break;
+		case 4:
+			hPos = Math.max(hPos - 12, 0);
+			break;
+		case 5: case 6: case 7:
+			++hPos;
+			break;
+		case 8: case 9:
+			hPos = Math.max(hPos - 1, 0);
+	}
+	var tortoiseMove = parseInt(Math.random() * 10);
+	switch(tortoiseMove) {
+		case 0: case 1: case 2: case 3: case 4:
+			tPos = Math.min(tPos + 3, 69);
+			break;
+		case 5: case 6:
+			tPos = Math.max(tPos - 6, 0);
+			break;
+		case 7: case 8: case 9:
+			++tPos;
+			break;
+	}
+	update();
+
+	if(tPos >= 69 && hPos >= 69)
+		log('IT\'S A TIE.');
+	else if(tPos >= 69)
+		log('TORTOISE WINS!!! YAY!!!');
+	else if(hPos >= 69)
+		log('HARE WINS. YUCK!');
+	else {
+		setTimeout(play, 1000);
+		return;
+	}
+
+	document.getElementById('strtB').disabled = false;
+}
+

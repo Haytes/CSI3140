@@ -1,0 +1,7 @@
+
+function displayclick(){
+	if(event.shiftKey)
+		alert("Event name: "+event);
+	else if(event.ctrlKey)
+		alert("Tag name: "+this.tagName);
+}

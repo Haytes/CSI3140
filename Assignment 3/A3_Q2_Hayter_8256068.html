@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Question 2</title>
+	<script type="text/javascript">
+		function guessing() {
+			var val = parseInt(Math.random() * 1000) + 1;
+			while(true){
+				var input = prompt('Guess a number');
+				if (input == null) {
+					return;
+				}
+				if (input == val) {
+					alert('You guessed correctly');
+					return;
+				}else if(input>val){
+					alert('Your guess was too high try again');
+				}else{
+					alert('Your guess was too low try again');
+				}
+
+			}
+			}
+	</script>
+</head>
+<body>
+	<button onclick="guessing()">Play the guessing game from 1 to 1000</button>
+</body>
+</html>

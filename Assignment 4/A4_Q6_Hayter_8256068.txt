@@ -1,0 +1,21 @@
+function init() {
+
+	var canvas = document.getElementById('shape');
+	var context = canvas.getContext('2d');
+
+	var gradient = context.createLinearGradient(100, 100, 100, 500);
+	gradient.addColorStop(0, 'pink');
+	gradient.addColorStop(0.5, 'white');
+	gradient.addColorStop(1, 'purple');
+
+	context.beginPath();
+	context.moveTo(300, 100);
+	context.lineTo(100, 500);
+	context.lineTo(500, 500);
+
+	context.fillStyle = gradient;
+	context.fill();
+
+}
+
+init();
